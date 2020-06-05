@@ -1,9 +1,11 @@
 {
   "name": "@alchemy-fr/phraseanet-react-components",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha1",
   "description": "Phraseanet React shared components",
   "main": "src/index.js",
   "scripts": {
+    "build": "npx babel src --out-dir dist",
+    "start": "npx babel src --watch --out-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,6 +13,20 @@
     "react",
     "shared components"
   ],
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alchemy-fr/phraseanet-react-components.git"
+  },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1"
+  }
 }
