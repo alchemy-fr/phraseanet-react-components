@@ -1,0 +1,16 @@
+{
+  "name": "@alchemy-fr/phraseanet-react-components",
+  "version": "1.0.0",
+  "description": "Phraseanet React shared components",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "phraseanet",
+    "react",
+    "shared components"
+  ],
+  "author": "",
+  "license": "MIT"
+}
