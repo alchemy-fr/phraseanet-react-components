@@ -63,6 +63,10 @@ export default class OAuthClient {
     async triggerEvent(type, event = {}) {
         event.type = type;
 
+        if (!this.listeners[type]) {
+            return Promise.resolve();
+        }
+
         return Promise.all(this.listeners[type].map(func => func(event)).filter(f => !!f));
     }
 
@@ -76,7 +80,7 @@ export default class OAuthClient {
                 .get(uri)
                 .accept('json')
                 .set('Authorization', 'Bearer ' + this.getAccessToken())
-                .end((err, res) => {
+                .end(async (err, res) => {
                     if (!this.isResponseValid(err, res)) {
                         reject(err, res);
                         return;
@@ -84,7 +88,7 @@ export default class OAuthClient {
 
                     this.authenticated = true;
                     this.setUsername(res.body.username);
-                    this.triggerEvent('authentication', {user: res.body});
+                    await this.triggerEvent('authentication', {user: res.body});
                     resolve(res.body);
                 });
         });
@@ -104,14 +108,14 @@ export default class OAuthClient {
                     client_secret: clientSecret,
                     redirect_uri: redirectUri,
                 })
-                .end((err, res) => {
+                .end(async (err, res) => {
                     if (err) {
                         reject(err, res);
                         return;
                     }
 
                     this.setAccessToken(res.body.access_token);
-                    this.triggerEvent('login');
+                    await this.triggerEvent('login');
 
                     resolve(res);
                 });

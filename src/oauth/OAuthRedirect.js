@@ -1,22 +1,47 @@
-import {PureComponent} from 'react';
+import React, {PureComponent} from 'react';
 import qs from 'querystring';
 import PropTypes from "prop-types";
+import FullPageLoader from "../loader/FullPageLoader";
 
 export default class OAuthRedirect extends PureComponent {
     static propTypes = {
         oauthClient: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired,
         location: PropTypes.object.isRequired,
+        successUri: PropTypes.string,
+        errorUri: PropTypes.string,
+        successHandler: PropTypes.func,
+        errorHandler: PropTypes.func,
     };
 
     handleSuccess = () => {
-        this.props.history.push('/');
+        const {
+            history,
+            successUri,
+            successHandler,
+        } = this.props;
+
+        if (successHandler) {
+            return successHandler(history);
+        }
+
+        history.push(successUri || '/');
     };
 
     handleError = (e) => {
+        const {
+            history,
+            errorUri,
+            errorHandler,
+        } = this.props;
+
+        if (errorHandler) {
+            return errorHandler(e, history);
+        }
+
         console.error(e);
         alert(e);
-        this.props.history.push('/');
+        history.push(errorUri || '/');
     };
 
     componentDidMount() {
@@ -36,6 +61,6 @@ export default class OAuthRedirect extends PureComponent {
     }
 
     render() {
-        return 'Loading...';
+        return <FullPageLoader/>;
     }
 }
