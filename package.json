@@ -4,7 +4,7 @@
   "description": "Phraseanet React shared components",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx babel src --out-dir dist",
+    "build": "npx babel src --out-dir dist --copy-files",
     "start": "npx babel src --watch --out-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,5 +28,10 @@
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "react-loader-spinner": "^3.1.14",
+    "superagent": "^5.2.2"
   }
 }
