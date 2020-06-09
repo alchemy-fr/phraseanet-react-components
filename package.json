@@ -1,8 +1,8 @@
 {
   "name": "@alchemy-fr/phraseanet-react-components",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-alpha3",
   "description": "Phraseanet React shared components",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npx babel src --out-dir dist",
     "start": "npx babel src --watch --out-dir dist",
