@@ -1,6 +1,6 @@
 {
   "name": "@alchemy-fr/phraseanet-react-components",
-  "version": "1.0.1-alpha5",
+  "version": "1.0.1-alpha6",
   "description": "Phraseanet React shared components",
   "main": "dist/index.js",
   "scripts": {

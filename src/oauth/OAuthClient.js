@@ -60,6 +60,17 @@ export default class OAuthClient {
         this.listeners[event].push(callback);
     }
 
+    unregisterListener(event, callback) {
+        if (!this.listeners[event]) {
+            return;
+        }
+
+        const index = this.listeners[event].findIndex(callback);
+        if (index >= 0) {
+            delete this.listeners[event][index];
+        }
+    }
+
     async triggerEvent(type, event = {}) {
         event.type = type;
 
