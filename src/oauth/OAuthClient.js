@@ -171,7 +171,7 @@ export default class OAuthClient {
         if (err) {
             console.debug(err);
             console.debug(res);
-            if (res.statusCode === 401) {
+            if (res && res.statusCode === 401) {
                 this.logout();
             }
             return false;
