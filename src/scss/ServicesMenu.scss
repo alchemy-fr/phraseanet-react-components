@@ -1,0 +1,38 @@
+$size: 45px;
+$bodyPadding: 20px;
+
+.services-menu {
+  position: absolute;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 50%;
+  border: 1px solid #CCC;
+  width: $size;
+  height: $size;
+  top: $bodyPadding;
+  right: $bodyPadding;
+  padding: $size / 5;
+
+  &:hover, &.opened {
+    box-shadow: 0 0 10px #CCC;
+  }
+}
+
+.sm-content {
+  display: none;
+  top: $size;
+  right: 0;
+  position: absolute;
+  border-radius: 10px;
+  border: 1px solid #CCC;
+  overflow: hidden;
+
+  .opened & {
+    display: block;
+  }
+
+  iframe {
+    min-width: 350px;
+    height: 350px;
+  }
+}
