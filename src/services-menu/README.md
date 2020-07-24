@@ -1,9 +1,11 @@
-# Loader
+# Services menu
 
 ```js
-import {FullPageLoader} from "@alchemy-fr/phraseanet-react-components";
+import {ServicesMenu} from "@alchemy-fr/phraseanet-react-components";
 
 function MyComponent() {
-    return <FullPageLoader />
+    return <ServicesMenu
+       dashboardBaseUrl={`${config.get('dashboardBaseUrl')}/menu.html`}
+   />
 }
 ```

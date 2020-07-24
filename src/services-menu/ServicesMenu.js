@@ -1,12 +1,7 @@
 import React, {PureComponent} from 'react';
-import PropTypes from "prop-types";
-import {ReactComponent as MenuImg} from './menu.svg';
+import menuImg from './menu.svg';
 
 export default class ServicesMenu extends PureComponent {
-    static propTypes = {
-        dashboardBaseUrl: PropTypes.string.isRequired,
-    };
-
     state = {
         open: false,
         openedOnce: false,
@@ -23,7 +18,7 @@ export default class ServicesMenu extends PureComponent {
             className={`services-menu${open ? ' opened' : ''}`}
             onClick={this.toggleMenu}
         >
-            <MenuImg />
+            <img src={menuImg} />
             {open || openedOnce ? <div
                 className={'sm-content'}
             >

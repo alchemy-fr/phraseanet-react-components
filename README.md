@@ -14,3 +14,4 @@ yarn add @alchemy-fr/phraseanet-react-components
 
 - [OAuth](./src/oauth/README.md)
 - [Loader](./src/loader/README.md)
+- [Services menu](./src/services-menu/README.md)
