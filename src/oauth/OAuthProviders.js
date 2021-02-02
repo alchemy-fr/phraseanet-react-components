@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
 
-const host = [
+const baseUrl = [
     window.location.protocol,
     '//',
-    window.location.hostname,
+    window.location.host,
 ].join('');
 
 const providerPropShape = PropTypes.shape({
@@ -37,7 +37,7 @@ export default class OAuthProviders extends Component {
 
         const redirectUriGenerator = typeof redirectUri === 'function'
             ? redirectUri
-            : (provider) => `${redirectUri || `${host}/auth`}/${provider.name}`;
+            : (provider) => `${redirectUri || `${baseUrl}/auth`}/${provider.name}`;
 
         return <div>
             {providers.map((provider) => {
