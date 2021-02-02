@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
-
-const baseUrl = [
-    window.location.protocol,
-    '//',
-    window.location.host,
-].join('');
+import {baseUrl} from './funcs';
 
 const providerPropShape = PropTypes.shape({
     name: PropTypes.string.isRequired,
